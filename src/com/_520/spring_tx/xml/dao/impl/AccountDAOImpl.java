@@ -2,7 +2,6 @@ package com._520.spring_tx.xml.dao.impl;
 
 import com._520.spring_tx.xml.dao.IAccountDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import javax.sql.DataSource;
 
 public class AccountDAOImpl implements IAccountDAO {

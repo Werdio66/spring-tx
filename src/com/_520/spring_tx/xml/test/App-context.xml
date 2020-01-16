@@ -36,7 +36,13 @@
     </bean>
 
 
+<!--    <bean id="accountServiceProxy" class="com._520.spring_tx.xml.advice.JdkAccountServiceProxy">-->
+<!--        <property name="target" ref="accountServlet"/>-->
+<!--    </bean>-->
 
+    <bean id="cjlibAccountServiceProxy" class="com._520.spring_tx.xml.advice.CjlibAccountServiceProxy">
+        <property name="target" ref="accountServlet"/>
+    </bean>
     <!---   what 配置事务管理器      -->
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
@@ -53,4 +59,16 @@
         <!--    -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
     </aop:config>
+
+    <!--    crud通用事务配置      -->
+    <tx:advice id="crudAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <!--    查询      -->
+            <tx:method name="list*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="get*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="query*" read-only="true" propagation="REQUIRED"/>
+            <!--    其他方法    -->
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
 </beans>

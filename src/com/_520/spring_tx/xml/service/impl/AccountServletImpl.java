@@ -2,7 +2,6 @@ package com._520.spring_tx.xml.service.impl;
 
 import com._520.spring_tx.xml.dao.IAccountDAO;
 import com._520.spring_tx.xml.service.IAccountService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class AccountServletImpl implements IAccountService {
 
@@ -14,7 +13,7 @@ public class AccountServletImpl implements IAccountService {
 
     public void trans(Long outId, Long inId, int money) {
         dao.transIn(inId, money);
-        int i = 1 / 0;
+//        int i = 1 / 0;
         dao.transOut(outId, money);
     }
 }

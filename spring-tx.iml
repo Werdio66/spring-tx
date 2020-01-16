@@ -5,6 +5,7 @@
       <configuration>
         <fileset id="fileset" name="App Context" removed="false">
           <file>file://$MODULE_DIR$/src/com/_520/spring_tx/xml/test/App-context.xml</file>
+          <file>file://$MODULE_DIR$/src/com/_520/spring_tx/anno/test/App-context.xml</file>
         </fileset>
       </configuration>
     </facet>
